@@ -1,0 +1,148 @@
+/* 极简技术风：适合求职展示 */
+:root {
+  --bg: #fafafa;
+  --text: #1a1a1a;
+  --muted: #5c5c5c;
+  --border: #e5e5e5;
+  --accent: #0d47a1;
+  --code-bg: #f3f4f6;
+  --sidebar-bg: #ffffff;
+  --font-sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Code", "Consolas", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --border: #30363d;
+    --accent: #58a6ff;
+    --code-bg: #161b22;
+    --sidebar-bg: #010409;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text);
+  background: var(--bg);
+}
+
+.sidebar {
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+}
+
+.sidebar-nav li > a {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.sidebar-nav li > a:hover {
+  color: var(--accent);
+}
+
+.sidebar-nav .active > a {
+  color: var(--accent);
+  font-weight: 600;
+  border-color: var(--accent);
+}
+
+.app-name-link img {
+  max-height: 28px;
+}
+
+.markdown-section {
+  max-width: 860px;
+  font-size: 15.5px;
+  line-height: 1.75;
+}
+
+.markdown-section h1,
+.markdown-section h2,
+.markdown-section h3 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  border-color: var(--border);
+}
+
+.markdown-section a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.markdown-section a:hover {
+  border-bottom-color: var(--accent);
+}
+
+.markdown-section code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--code-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.12em 0.35em;
+}
+
+.markdown-section pre {
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--code-bg) !important;
+}
+
+.markdown-section pre > code {
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+/* Prism line numbers 与 Docsify 对齐 */
+pre.line-numbers {
+  position: relative;
+  padding-left: 3.6em !important;
+}
+
+pre.line-numbers > code {
+  display: block;
+  counter-reset: linenumber;
+}
+
+pre.line-numbers .line-numbers-rows {
+  border-right: 1px solid var(--border);
+}
+
+.navbar {
+  border-bottom: 1px solid var(--border);
+  background: var(--sidebar-bg);
+}
+
+.search input {
+  font-family: var(--font-sans);
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+}
+
+.search .search-keyword {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* 文章元信息块 */
+.post-meta {
+  font-size: 13px;
+  color: var(--muted);
+  border-left: 3px solid var(--accent);
+  padding: 8px 12px;
+  margin: 0 0 1.25em;
+  background: var(--code-bg);
+  border-radius: 0 6px 6px 0;
+}
+
+.post-meta code {
+  font-size: 12px;
+}
