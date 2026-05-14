@@ -18,27 +18,25 @@
      * GitHub Pages 项目站：自动推断 basePath（仓库名为路径首段）
      * 用户主页仓库 username.github.io 根部署时 pathname 多为 "/"，basePath 为 "/"
      */
-    function docsifyBasePath() {
+       function docsifyBasePath() {
       var path = decodeURI(location.pathname || "/");
       if (path === "/" || path === "/index.html") return "/";
       if (/index\.html$/i.test(path)) path = path.replace(/index\.html$/i, "");
       if (!path.endsWith("/")) path += "/";
       return path;
     }
-    loadSidebar: "sidebar.md"
-    loadNavbar: "navbar.md"
-    notFoundPage: "404.md"
+
     window.$docsify = {
       name: "安全笔记",
-      // 改成你的仓库可显示右上角 GitHub 角标，例如：username/security-notes-blog
       repo: "",
       basePath: docsifyBasePath(),
-      loadSidebar: true,
-      loadNavbar: true,
+      // 必须写在 $docsify 对象内部；字符串表示侧栏文件名（配合仓库里的 sidebar.md / navbar.md）
+      loadSidebar: "sidebar.md",
+      loadNavbar: "navbar.md",
       subMaxLevel: 3,
       auto2top: true,
       relativePath: true,
-      notFoundPage: true,
+      notFoundPage: "404.md",
       search: {
         maxAge: 86400000,
         paths: "auto",
@@ -57,9 +55,7 @@
               if (window.Prism && Prism.plugins && Prism.plugins.lineNumbers) {
                 try {
                   Prism.plugins.lineNumbers.resize();
-                } catch (e) {
-                  /* ignore */
-                }
+                } catch (e) {}
               }
             });
           });
