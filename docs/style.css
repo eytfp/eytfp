@@ -181,5 +181,26 @@ body.close .sidebar-toggle {
     font-size: 1.05em;
 }
 
+.sidebar-nav li.folder {
+    cursor: pointer;
+}
 
+/* 2. 关键：解决文字链接拦截点击事件的问题 */
+/* 这样点击文字也能触发折叠插件的开关逻辑 */
+.sidebar-nav li.folder > strong,
+.sidebar-nav li.folder > a {
+    pointer-events: auto !important;
+}
+
+/* 3. 增强视觉反馈：给展开/收起的小箭头加个颜色或缩进（可选） */
+.sidebar-nav li.folder:before {
+    color: #42b983; /* 使用主题绿 */
+    font-weight: bold;
+}
+
+/* 4. 如果点击还是不灵敏，强制让整个列表项都能响应点击 */
+.sidebar-nav li.folder > p {
+    margin: 0;
+    padding: 0;
+}
 
