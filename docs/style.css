@@ -287,45 +287,55 @@ body.close .sidebar-toggle {
 
 
 
-/* --- 顶部导航栏 (Navbar) 彻底重排 --- */
+/* --- 强力版：顶部标签重构 --- */
 
+/* 1. 强制搬家：使用固定位置解决重叠 */
 .navbar {
-    /* 1. 搬家：从右边挪到左边，避开月亮图标 */
-    left: 60px !important; 
-    right: auto !important;
+    position: fixed !important;
+    left: 60px !important;    /* 避开左侧三道杠 */
+    right: auto !important;   /* 必须显式取消右侧定位 */
     top: 15px !important;
-    width: auto !important;
+    padding: 0 !important;
     background: transparent !important;
     border: none !important;
+    z-index: 999 !important;
 }
 
-.navbar ul {
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-.navbar ul li {
-    margin: 0 15px 0 0 !important; /* 标签右侧间距 */
-    padding: 0 !important;
-    background: none !important;
-}
-
-/* 2. 彻底干掉那根绿色的横线 */
-.navbar ul li a, 
-.navbar ul li.active a,
-.navbar-item.active {
+/* 2. 移除容器背景和边框 */
+.navbar ul, .navbar li {
+    background: transparent !important;
     border: none !important;
-    text-decoration: none !important;
-    color: inherit !important;
+    box-shadow: none !important;
 }
 
-/* 3. 这里的伪元素也可能是横线的来源，一起杀掉 */
-.navbar ul li a:after {
+/* 3. 彻底清除所有形式的“绿线” */
+.navbar ul li a, 
+.navbar ul li.active a, 
+.navbar-item.active,
+.navbar ul li a:hover {
+    border: none !important;          /* 移除边框线 */
+    border-bottom: none !important;   /* 移除下划线 */
+    text-decoration: none !important; /* 移除装饰线 */
+    outline: none !important;         /* 移除点击外框 */
+    box-shadow: none !important;      /* 有些主题用阴影模拟线条 */
+    background: transparent !important;
+}
+
+/* 4. 移除 Docsify 默认生成的伪元素（横线的主要来源） */
+.navbar ul li a::after,
+.navbar ul li a::before {
     display: none !important;
+    content: none !important;
 }
 
-/* 4. 优化标签图片展示 */
+/* 5. 标签间距与对齐 */
+.navbar ul li {
+    display: inline-block !important;
+    margin-right: 18px !important;    /* 增加间距 */
+    vertical-align: middle !important;
+}
+
 .navbar img {
-    vertical-align: middle;
-    display: block;
+    height: 20px !important;          /* 统一标签高度 */
+    display: inline-block !important;
 }
