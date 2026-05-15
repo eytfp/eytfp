@@ -149,22 +149,9 @@ pre.line-numbers .line-numbers-rows {
 
 /* --- 强行禁止侧边栏点击展开目录 --- */
 
-/* 1. 隐藏所有嵌套的列表（二级目录） */
-.sidebar-nav ul ul {
-  display: none !important;
-}
 
-/* 2. 即使页面处于激活状态，也不允许显示下级 ul */
-.sidebar-nav li.active > ul {
-  display: none !important;
-}
-
-/* 3. 隐藏 Docsify 自动生成的文章内副标题目录 */
+/* 只隐藏文档内自动生成的副标题目录 */
 .app-sub-sidebar {
   display: none !important;
 }
 
-/* 4. 移除文件夹前面的小箭头（如果有的话） */
-.sidebar-nav .folder .caret {
-  display: none !important;
-}
