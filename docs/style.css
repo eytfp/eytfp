@@ -215,3 +215,39 @@ body.close .sidebar-toggle {
     padding: 5px 0;
 }
 
+/* --- 强化版折叠指示箭头 --- */
+
+/* 1. 调整父级容器位置，给大箭头留出空间 */
+.sidebar-nav li.folder {
+    position: relative;
+    padding-left: 15px !important; /* 增加左侧内边距 */
+    cursor: pointer !important;
+}
+
+/* 2. 放大箭头并美化 */
+.sidebar-nav li.folder:before {
+    content: '▶'; /* 使用更厚实的实心三角，或者保持 '▸' */
+    position: absolute;
+    left: 0px;      /* 靠左对齐 */
+    top: 12px;      /* 根据你的行高微调垂直位置 */
+    font-size: 18px; /* 这里的像素值越大，箭头越大 */
+    color: var(--accent); /* 使用你定义的蓝色或主题绿 */
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+/* 3. 展开时的旋转状态 */
+.sidebar-nav li.folder.open:before {
+    transform: rotate(90deg); /* 顺时针旋转90度变为向下 */
+}
+
+/* 4. 调整标题文字的间距，防止被大箭头遮挡 */
+.sidebar-nav li.folder > strong,
+.sidebar-nav li.folder > a {
+    padding-left: 10px;
+    display: inline-block;
+}
+
+
+
+
