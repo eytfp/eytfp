@@ -287,23 +287,45 @@ body.close .sidebar-toggle {
 
 
 
-/* --- 顶部功能区视觉优化：解决拥挤与下划线 --- */
+/* --- 顶部导航栏 (Navbar) 彻底重排 --- */
 
-/* 1. 彻底去掉导航栏项目下的横线 */
-.navbar ul li a {
-    border-bottom: none !important;
+.navbar {
+    /* 1. 搬家：从右边挪到左边，避开月亮图标 */
+    left: 60px !important; 
+    right: auto !important;
+    top: 15px !important;
+    width: auto !important;
+    background: transparent !important;
+    border: none !important;
 }
 
-/* 2. 给每个标签（Badge）增加左右间距，解决拥挤感 */
+.navbar ul {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
 .navbar ul li {
-    margin-right: 15px !important; /* 每个标签右侧增加15px间距 */
-    display: inline-block !important; /* 确保间距生效 */
+    margin: 0 15px 0 0 !important; /* 标签右侧间距 */
+    padding: 0 !important;
+    background: none !important;
 }
 
-/* 如果最后一个标签后面还想留空，可以微调 margin-right 或使用 margin-left */
+/* 2. 彻底干掉那根绿色的横线 */
+.navbar ul li a, 
+.navbar ul li.active a,
+.navbar-item.active {
+    border: none !important;
+    text-decoration: none !important;
+    color: inherit !important;
+}
 
-/* 3. 增强视觉反馈：让标签在鼠标悬停时轻微放大 */
-.navbar ul li img:hover {
-    transform: scale(1.05); /* 放大5% */
-    transition: transform 0.2s ease-in-out;
+/* 3. 这里的伪元素也可能是横线的来源，一起杀掉 */
+.navbar ul li a:after {
+    display: none !important;
+}
+
+/* 4. 优化标签图片展示 */
+.navbar img {
+    vertical-align: middle;
+    display: block;
 }
