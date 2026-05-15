@@ -284,3 +284,26 @@ body.close .sidebar-toggle {
         right: 10px !important;
     }
 }
+
+
+
+/* --- 顶部功能区视觉优化：解决拥挤与下划线 --- */
+
+/* 1. 彻底去掉导航栏项目下的横线 */
+.navbar ul li a {
+    border-bottom: none !important;
+}
+
+/* 2. 给每个标签（Badge）增加左右间距，解决拥挤感 */
+.navbar ul li {
+    margin-right: 15px !important; /* 每个标签右侧增加15px间距 */
+    display: inline-block !important; /* 确保间距生效 */
+}
+
+/* 如果最后一个标签后面还想留空，可以微调 margin-right 或使用 margin-left */
+
+/* 3. 增强视觉反馈：让标签在鼠标悬停时轻微放大 */
+.navbar ul li img:hover {
+    transform: scale(1.05); /* 放大5% */
+    transition: transform 0.2s ease-in-out;
+}
