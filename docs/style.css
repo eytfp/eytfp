@@ -155,3 +155,31 @@ pre.line-numbers .line-numbers-rows {
   display: none !important;
 }
 
+/* --- 侧边栏按钮挪到左上方 --- */
+.sidebar-toggle {
+    top: 15px !important;
+    bottom: auto !important;
+    left: 260px !important; /* 这个位置正好在侧边栏边缘 */
+    position: fixed;
+    transition: left 0.3s ease-in-out;
+}
+
+/* 当侧边栏关闭时，按钮回到屏幕最左边 */
+body.close .sidebar-toggle {
+    left: 15px !important;
+}
+
+/* 给侧边栏顶部留点空位，别挡住标题 */
+.sidebar {
+    padding-top: 60px !important;
+}
+
+/* 侧边栏文字加粗一点点，看起来更像文件夹 */
+.sidebar-nav li > strong {
+    display: block;
+    margin: 10px 0;
+    font-size: 1.05em;
+}
+
+
+
