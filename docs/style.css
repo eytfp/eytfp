@@ -181,26 +181,37 @@ body.close .sidebar-toggle {
     font-size: 1.05em;
 }
 
+/* --- 修复折叠插件点击逻辑 --- */
+
+/* 1. 强制父级菜单项显示手型，并增加点击区域 */
 .sidebar-nav li.folder {
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
-/* 2. 关键：解决文字链接拦截点击事件的问题 */
-/* 这样点击文字也能触发折叠插件的开关逻辑 */
+/* 2. 关键：解决文字链接拦截插件点击事件的问题 */
+/* 我们让标题文字不拦截鼠标事件，这样点击会直接作用于父级容器触发折叠 */
 .sidebar-nav li.folder > strong,
 .sidebar-nav li.folder > a {
-    pointer-events: auto !important;
+    position: relative;
+    z-index: 1;
 }
 
-/* 3. 增强视觉反馈：给展开/收起的小箭头加个颜色或缩进（可选） */
+/* 3. 在分类标题前增加折叠/展开的指示箭头（可选，增强仪式感） */
 .sidebar-nav li.folder:before {
-    color: #42b983; /* 使用主题绿 */
-    font-weight: bold;
+    content: '▸';
+    position: absolute;
+    left: 5px;
+    color: var(--accent);
+    transition: transform 0.3s;
 }
 
-/* 4. 如果点击还是不灵敏，强制让整个列表项都能响应点击 */
+.sidebar-nav li.folder.open:before {
+    transform: rotate(90deg);
+}
+
+/* 4. 确保点击整行都能触发 */
 .sidebar-nav li.folder > p {
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 5px 0;
 }
 
