@@ -286,4 +286,30 @@ body.close .sidebar-toggle {
 }
 
 
+/* --- 强行物理折叠方案 --- */
 
+/* 1. 初始状态：无论插件怎么想，强制隐藏所有二级菜单 */
+.sidebar-nav li.folder > ul {
+    display: none !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    transition: none !important; /* 关掉过渡动画，防止闪烁 */
+}
+
+/* 2. 激活状态：只有当手动点击，父级获得 .open 类时才显示 */
+.sidebar-nav li.folder.open > ul {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+}
+
+/* 3. 修复箭头状态：确保箭头指向与折叠状态同步 */
+.sidebar-nav li.folder:before {
+    content: '▶' !important; /* 默认指向右 */
+    transform: rotate(0deg) !important;
+}
+
+.sidebar-nav li.folder.open:before {
+    content: '▶' !important;
+    transform: rotate(90deg) !important; /* 展开时旋转 */
+}
