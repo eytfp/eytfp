@@ -17,6 +17,6 @@
 * [**CTF**](/ctf/README.md)
   * [示例：Crypto 编码识别](/ctf/sample-encoding-tricks.md)
 
-* [**其他**](/README.md)
+* [**其他**](#)
   * [项目与 Git 链接](/projects.md)
   * [维护说明：增删改查](/guide/edit-guide.md)
