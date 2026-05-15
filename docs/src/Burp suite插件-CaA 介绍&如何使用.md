@@ -1,4 +1,4 @@
-# Burp suite插件\-CaA 介绍&如何使用
+# Burpsuite插件\-CaA介绍&如何使用
 
 CaA 全称**Collector and Analyzer**，是**BurpSuite 专用流量收集、敏感信息提取、Web 信息挖掘、Fuzz 模糊测试一体化插件**，主打被动采集 HTTP 流量，提取参数、路径、接口、敏感字段，统计频次生成专属 Fuzz 字典，同时支持主动漏洞探测，是 Web 渗透、漏洞挖掘必备工具。
 项目开源地址：[https://github\.com/gh0stkey/CaA](https://github.com/gh0stkey/CaA)
