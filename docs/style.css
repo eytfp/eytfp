@@ -161,12 +161,14 @@ pre.line-numbers .line-numbers-rows {
     bottom: auto !important;
     left: 260px !important; /* 这个位置正好在侧边栏边缘 */
     position: fixed;
+    z-index: 1000 !important;
     transition: left 0.3s ease-in-out;
+    background: transparent !important;
 }
 
 /* 当侧边栏关闭时，按钮回到屏幕最左边 */
 body.close .sidebar-toggle {
-    left: 15px !important;
+    left: 10px !important;
 }
 
 /* 给侧边栏顶部留点空位，别挡住标题 */
@@ -248,6 +250,37 @@ body.close .sidebar-toggle {
     display: inline-block;
 }
 
+.count {
+    position: static !important;
+    display: block !important;
+    text-align: right;
+    margin-top: 10px !important;
+    color: var(--muted);
+    font-size: 0.9em;
+}
 
+/* 确保深色模式开关固定在右上角 */
+#docsify-darklight-theme {
+    top: 10px !important;
+    right: 20px !important;
+    position: fixed !important;
+    z-index: 1001 !important;
+}
 
+/* 📱 手机端适配：防止所有图标堆在一起 */
+@media screen and (max-width: 768px) {
+    .sidebar-toggle {
+        left: 10px !important; /* 手机端切换按钮固定在左上 */
+    }
+    
+    /* 手机端隐藏顶部导航栏的“首页”文字，腾出空间 */
+    .navbar {
+        display: none !important; 
+    }
 
+    /* 调低深色模式开关的位置，防止撞到浏览器地址栏 */
+    #docsify-darklight-theme {
+        top: 8px !important;
+        right: 10px !important;
+    }
+}
