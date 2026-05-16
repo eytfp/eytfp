@@ -9,7 +9,7 @@
 
 ---
 
-博客：[仓库](https://github.com/eytfp/eytfp)
+博客：<a href="https://github.com/eytfp/eytfp" target="_blank">仓库</a>
 
 ## 👋 个人简介 / Introduction
 
